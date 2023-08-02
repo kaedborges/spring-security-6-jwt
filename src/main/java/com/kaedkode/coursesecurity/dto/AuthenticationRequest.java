@@ -1,4 +1,4 @@
-package com.kaedkode.coursesecurity.auth;
+package com.kaedkode.coursesecurity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

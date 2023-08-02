@@ -1,10 +1,8 @@
-package com.kaedkode.coursesecurity.user;
+package com.kaedkode.coursesecurity.model;
 
-import com.kaedkode.coursesecurity.token.Token;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;

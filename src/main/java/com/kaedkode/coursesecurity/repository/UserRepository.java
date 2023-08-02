@@ -1,5 +1,6 @@
-package com.kaedkode.coursesecurity.user;
+package com.kaedkode.coursesecurity.repository;
 
+import com.kaedkode.coursesecurity.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

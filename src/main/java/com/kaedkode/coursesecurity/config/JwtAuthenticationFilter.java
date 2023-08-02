@@ -1,6 +1,7 @@
 package com.kaedkode.coursesecurity.config;
 
-import com.kaedkode.coursesecurity.token.TokenRepository;
+import com.kaedkode.coursesecurity.service.JwtService;
+import com.kaedkode.coursesecurity.repository.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

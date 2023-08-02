@@ -1,5 +1,9 @@
-package com.kaedkode.coursesecurity.auth;
+package com.kaedkode.coursesecurity.controller;
 
+import com.kaedkode.coursesecurity.dto.AuthenticationRequest;
+import com.kaedkode.coursesecurity.dto.AuthenticationResponse;
+import com.kaedkode.coursesecurity.service.AuthenticationService;
+import com.kaedkode.coursesecurity.dto.RegisterRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

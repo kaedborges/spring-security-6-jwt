@@ -1,4 +1,4 @@
-package com.kaedkode.coursesecurity.config;
+package com.kaedkode.coursesecurity.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

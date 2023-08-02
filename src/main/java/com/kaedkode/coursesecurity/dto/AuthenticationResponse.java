@@ -1,4 +1,4 @@
-package com.kaedkode.coursesecurity.auth;
+package com.kaedkode.coursesecurity.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

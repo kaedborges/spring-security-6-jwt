@@ -1,4 +1,4 @@
-package com.kaedkode.coursesecurity.user;
+package com.kaedkode.coursesecurity.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.kaedkode.coursesecurity.user.Permission.*;
+import static com.kaedkode.coursesecurity.model.Permission.*;
 
 @RequiredArgsConstructor
 public enum Role {

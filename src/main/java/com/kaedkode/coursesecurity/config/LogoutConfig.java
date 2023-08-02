@@ -1,6 +1,6 @@
 package com.kaedkode.coursesecurity.config;
 
-import com.kaedkode.coursesecurity.token.TokenRepository;
+import com.kaedkode.coursesecurity.repository.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class LogoutService implements LogoutHandler {
+public class LogoutConfig implements LogoutHandler {
 
   private final TokenRepository repository;
 

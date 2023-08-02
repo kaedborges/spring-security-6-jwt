@@ -1,13 +1,14 @@
-package com.kaedkode.coursesecurity.auth;
+package com.kaedkode.coursesecurity.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kaedkode.coursesecurity.config.JwtService;
-import com.kaedkode.coursesecurity.token.Token;
-import com.kaedkode.coursesecurity.token.TokenRepository;
-import com.kaedkode.coursesecurity.token.TokenType;
-import com.kaedkode.coursesecurity.user.Role;
-import com.kaedkode.coursesecurity.user.User;
-import com.kaedkode.coursesecurity.user.UserRepository;
+import com.kaedkode.coursesecurity.dto.AuthenticationRequest;
+import com.kaedkode.coursesecurity.dto.AuthenticationResponse;
+import com.kaedkode.coursesecurity.dto.RegisterRequest;
+import com.kaedkode.coursesecurity.model.Token;
+import com.kaedkode.coursesecurity.repository.TokenRepository;
+import com.kaedkode.coursesecurity.model.TokenType;
+import com.kaedkode.coursesecurity.model.User;
+import com.kaedkode.coursesecurity.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

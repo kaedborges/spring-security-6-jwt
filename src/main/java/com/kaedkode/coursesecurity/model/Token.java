@@ -1,6 +1,5 @@
-package com.kaedkode.coursesecurity.token;
+package com.kaedkode.coursesecurity.model;
 
-import com.kaedkode.coursesecurity.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 

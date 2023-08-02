@@ -1,6 +1,6 @@
-package com.kaedkode.coursesecurity.auth;
+package com.kaedkode.coursesecurity.dto;
 
-import com.kaedkode.coursesecurity.user.Role;
+import com.kaedkode.coursesecurity.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

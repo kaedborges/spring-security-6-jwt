@@ -1,4 +1,4 @@
-package com.kaedkode.coursesecurity.user;
+package com.kaedkode.coursesecurity.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
