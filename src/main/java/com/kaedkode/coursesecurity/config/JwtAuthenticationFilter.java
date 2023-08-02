@@ -1,5 +1,6 @@
 package com.kaedkode.coursesecurity.config;
 
+import com.kaedkode.coursesecurity.token.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
   private final JwtService jwtService;
   private final UserDetailsService userDetailsService;
+  private final TokenRepository tokenRepository;
 
   @Override
   protected void doFilterInternal(
@@ -29,6 +31,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
           @NonNull HttpServletResponse response,
           @NonNull FilterChain filterChain
   ) throws ServletException, IOException {
+    //Verificar se a chamada é de autenticação
+    if (request.getServletPath().contains("/api/v1/auth")){
+      filterChain.doFilter(request, response);
+      return;
+    }
+
     final String authHeader = request.getHeader("Authorization");
     final String jwt;
     final String userEmail;
@@ -41,8 +49,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     //Verificar se o utilizador esta logado
     if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null){
       UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+      var isTokenValid = tokenRepository.findByToken(jwt)
+              .map(t -> !t.isExpired() && !t.isRevoked())
+              .orElse(false);
       //verificar se o token é valido
-      if (jwtService.isTokenValid(jwt, userDetails)){
+      if (jwtService.isTokenValid(jwt, userDetails) && isTokenValid){
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
