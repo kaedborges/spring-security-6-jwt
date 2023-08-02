@@ -34,7 +34,7 @@ public class AuthenticationService {
     var user = User.builder()
             .firstname(request.getFirstname())
             .lastname(request.getLastname())
-            .emial(request.getEmail())
+            .email(request.getEmail())
             .password(passwordEncoder.encode(request.getPassword()))
             .role(request.getRole())
             .build();
@@ -55,7 +55,7 @@ public class AuthenticationService {
                     request.getPassword()
             )
     );
-    var user = userRepository.findByEmial(request.getEmail())
+    var user = userRepository.findByEmail(request.getEmail())
             .orElseThrow();
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
@@ -104,7 +104,7 @@ public class AuthenticationService {
     refreshToken = authHeader.substring(7);
     userEmail = jwtService.extractUsername(refreshToken);
     if (userEmail != null){
-      var user  = this.userRepository.findByEmial(userEmail)
+      var user  = this.userRepository.findByEmail(userEmail)
               .orElseThrow();
       if (jwtService.isTokenValid(refreshToken,user)){
         var accessToken = jwtService.generateToken(user);

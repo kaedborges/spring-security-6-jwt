@@ -57,17 +57,17 @@ public class SecurityConfiguration {
             .requestMatchers(PUT, "/api/v1/management/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name())
             .requestMatchers(DELETE, "/api/v1/management/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name())
             .anyRequest()
-            .authenticated()
+              .authenticated()
             .and()
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+              .sessionManagement()
+              .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authenticationProvider(authenticationProvider)
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .logout()
-            .logoutUrl("")
-            .addLogoutHandler(logoutHandler)
-            .logoutSuccessHandler(((request, response, authentication) -> SecurityContextHolder.clearContext()))
+              .logoutUrl("/api/v1/auth/logout")
+              .addLogoutHandler(logoutHandler)
+              .logoutSuccessHandler(((request, response, authentication) -> SecurityContextHolder.clearContext()))
     ;
 
     return http.build();
